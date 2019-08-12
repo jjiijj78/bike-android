@@ -92,7 +92,7 @@ class MainPresenter : MainContact.Presenter, BottomSheetBehavior.BottomSheetCall
     override fun loadItems(context: Context, isClear: Boolean) {
         val tempList = arrayListOf<recyclerItem>(
                 recyclerItem("나는","멍청이입니다."),
-                recyclerItem("다시는", "술을 그렇게 먹지 않겠습니다."),
+                recyclerItem("다시는", "술을 그렇게 먹지 않겠습니다 ."),
                 recyclerItem("인생", "넘모 슬픕니다."),
                 recyclerItem("제가 또 술을 그렇게 마시면", "사람이 아닙니다."),
                 recyclerItem("하지만 유감스럽게도", "이미 사람은 아닙니다."),
@@ -105,9 +105,11 @@ class MainPresenter : MainContact.Presenter, BottomSheetBehavior.BottomSheetCall
 
     private fun onClickListener(position: Int,textview:TextView) {
         titleAdapterModel.getItem(position).let {
+            Log.d("tag",position.toString() + it.title)
             view.showToast(it.title)
         }
-    view.showToast(textview.text.toString())
+//    view.showToast(textview.text.toString())
+
     }
 
     override fun setGps(tMapGps: TMapGpsManager) {
